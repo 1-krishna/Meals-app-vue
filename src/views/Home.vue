@@ -1,18 +1,22 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <MealCard />
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import MealCard from "@/components/MealCard.vue";
+import { fetchRandomMeal } from "@/networkCall.service.js";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
+    MealCard
+  },
+  data: () => ({}),
+  mounted() {
+    if (!this.$store.getters.mealCard.strMeal) {
+      fetchRandomMeal().then(response => {
+        this.$store.commit("changeMealCard", response.data.meals[0]);
+      });
+    }
   }
-}
+};
 </script>
