@@ -1,16 +1,11 @@
 <template>
   <v-card class="mx-auto my-12 detailed-card" v-if="detailedMeal" elevation="10" max-width="800px">
     <h1>{{detailedMeal.strMeal}}</h1>
-    <!-- <h1>{{detailedMeal}}</h1> -->
 
     <v-img height="500px" style="margin-top:30px;" align="center" :src="detailedMeal.strMealThumb">
       <template v-slot:placeholder>
         <v-row class="fill-height ma-0" align="center" justify="center">
           <v-progress-circular indeterminate color="blue accent-5"></v-progress-circular>
-          <!-- <v-col class="subtitle-1 text-center" cols="12">Loading Image</v-col>
-          <v-col cols="6">
-            <v-progress-linear color="blue accent-4" indeterminate rounded height="6"></v-progress-linear>
-          </v-col>-->
         </v-row>
       </template>
     </v-img>

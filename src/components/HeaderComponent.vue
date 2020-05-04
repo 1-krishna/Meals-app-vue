@@ -17,7 +17,7 @@
         label="Search Meal"
       ></v-text-field>
     </v-form>
-    <v-btn @click="submitForm" icon>
+    <v-btn id="search-button" :disabled="!searchQuery" @click="submitForm" icon>
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
     <v-spacer></v-spacer>
